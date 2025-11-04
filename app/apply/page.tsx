@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import styled from 'styled-components';
 import { StepIndicator, ProgressBar } from '@/components/ui';
@@ -104,6 +104,7 @@ export default function ApplyPage() {
   const progress = ((currentStep - 1) / (steps.length - 1)) * 100;
 
   return (
+    <Suspense fallback={null}>
     <Container>
       <Content>
         <Header>
@@ -126,6 +127,7 @@ export default function ApplyPage() {
         {renderStep()}
       </Content>
     </Container>
+    </Suspense>
   );
 }
 
