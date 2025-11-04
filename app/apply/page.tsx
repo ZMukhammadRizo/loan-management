@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
 import styled from 'styled-components';
 import { StepIndicator, ProgressBar } from '@/components/ui';
 import { useLoanFormStore } from '@/stores/loanFormStore';
@@ -76,17 +75,19 @@ const steps = [
 export const dynamic = 'force-dynamic';
 
 export default function ApplyPage() {
-  const searchParams = useSearchParams();
   const { formData, setReferralCode } = useLoanFormStore();
   const currentStep = formData.currentStep;
 
   useEffect(() => {
-    const ref = searchParams.get('ref');
-    if (ref) {
-      setReferralCode(ref);
-      console.log('Referral code captured:', ref);
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const ref = params.get('ref');
+      if (ref) {
+        setReferralCode(ref);
+        console.log('Referral code captured:', ref);
+      }
     }
-  }, [searchParams, setReferralCode]);
+  }, [setReferralCode]);
 
   const renderStep = () => {
     switch (currentStep) {
