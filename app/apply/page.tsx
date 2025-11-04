@@ -73,6 +73,8 @@ const steps = [
   { title: 'Register', description: 'Create account' },
 ];
 
+export const dynamic = 'force-dynamic';
+
 export default function ApplyPage() {
   const searchParams = useSearchParams();
   const { formData, setReferralCode } = useLoanFormStore();
