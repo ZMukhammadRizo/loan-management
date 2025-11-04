@@ -16,20 +16,21 @@ const StyledCard = styled(motion.div)<{
   $hoverable?: boolean;
 }>`
   background: ${props => props.theme.colors.white};
-  border-radius: ${props => props.theme.borderRadiusLg};
-  box-shadow: ${props => props.theme.shadows.small};
+  border-radius: ${props => props.theme.borderRadiusMd};
+  border: 1px solid ${props => props.theme.colors.borderLight};
+  box-shadow: ${props => props.theme.shadows.xs};
   padding: ${props => {
-    if (props.$padding === 'sm') return props.theme.spacing.md;
-    if (props.$padding === 'lg') return props.theme.spacing.xl;
-    return props.theme.spacing.lg;
+    if (props.$padding === 'sm') return props.theme.spacing.lg;
+    if (props.$padding === 'lg') return props.theme.spacing['2xl'];
+    return props.theme.spacing.xl;
   }};
-  transition: all 0.3s ease;
+  transition: all 0.15s ease;
   cursor: ${props => props.onClick ? 'pointer' : 'default'};
   
   ${props => props.$hoverable && `
     &:hover {
-      transform: translateY(-4px);
-      box-shadow: ${props.theme.shadows.medium};
+      border-color: ${props.theme.colors.border};
+      box-shadow: ${props.theme.shadows.small};
     }
   `}
 `;
@@ -45,8 +46,7 @@ export const Card: React.FC<CardProps> = ({
       $padding={padding} 
       $hoverable={hoverable}
       onClick={onClick}
-      whileHover={hoverable ? { y: -4 } : {}}
-      whileTap={onClick ? { scale: 0.98 } : {}}
+      whileTap={onClick ? { scale: 0.99 } : {}}
     >
       {children}
     </StyledCard>

@@ -28,11 +28,12 @@ const SectionTitle = styled.h3`
 `;
 
 const ReferralCard = styled(Card)`
-  background: linear-gradient(135deg, ${props => props.theme.colors.primary}15 0%, ${props => props.theme.colors.accent} 100%);
+  background: ${props => props.theme.colors.primaryLight};
+  border-color: ${props => props.theme.colors.primary}20;
 `;
 
 const ReferralTitle = styled.h4`
-  font-size: ${props => props.theme.fontSizes.lg};
+  font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
   color: ${props => props.theme.colors.text};
   margin-bottom: ${props => props.theme.spacing.sm};
@@ -54,11 +55,11 @@ const ReferralLink = styled.div`
   flex: 1;
   padding: ${props => props.theme.spacing.md};
   background: ${props => props.theme.colors.white};
-  border: 2px solid ${props => props.theme.colors.border};
+  border: 1px solid ${props => props.theme.colors.border};
   border-radius: ${props => props.theme.borderRadius};
-  font-size: ${props => props.theme.fontSizes.sm};
-  font-family: monospace;
-  color: ${props => props.theme.colors.primary};
+  font-size: ${props => props.theme.fontSizes.xs};
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  color: ${props => props.theme.colors.textSecondary};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -72,16 +73,16 @@ const CopyButton = styled.button`
   display: flex;
   align-items: center;
   gap: ${props => props.theme.spacing.sm};
-  font-weight: ${props => props.theme.fontWeights.semibold};
-  transition: all 0.2s ease;
+  font-weight: ${props => props.theme.fontWeights.medium};
+  font-size: ${props => props.theme.fontSizes.sm};
+  transition: all 0.15s ease;
 
   &:hover {
     background: ${props => props.theme.colors.primaryHover};
-    transform: translateY(-2px);
   }
 
   svg {
-    font-size: ${props => props.theme.fontSizes.lg};
+    font-size: ${props => props.theme.fontSizes.md};
   }
 `;
 
@@ -147,7 +148,7 @@ export default function BrokerDashboard() {
       <Section>
         <SectionTitle>Your Referral Link</SectionTitle>
         <ReferralCard padding="lg">
-          <ReferralTitle>🎯 Share your unique link</ReferralTitle>
+          <ReferralTitle>Share your unique referral link</ReferralTitle>
           <ReferralText>
             Share this link with potential borrowers. You'll earn commission on every successful loan!
           </ReferralText>

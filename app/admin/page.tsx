@@ -9,68 +9,75 @@ import { FiDollarSign, FiCheckCircle, FiUsers, FiTrendingUp } from 'react-icons/
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: ${props => props.theme.spacing.lg};
-  margin-bottom: ${props => props.theme.spacing['2xl']};
+  margin-bottom: ${props => props.theme.spacing['3xl']};
 `;
 
 const Section = styled.section`
-  margin-bottom: ${props => props.theme.spacing['2xl']};
+  margin-bottom: ${props => props.theme.spacing['3xl']};
 `;
 
 const SectionTitle = styled.h3`
-  font-size: ${props => props.theme.fontSizes.xl};
+  font-size: ${props => props.theme.fontSizes.lg};
   font-weight: ${props => props.theme.fontWeights.semibold};
   color: ${props => props.theme.colors.text};
-  margin-bottom: ${props => props.theme.spacing.lg};
+  margin-bottom: ${props => props.theme.spacing.xl};
+  letter-spacing: -0.02em;
 `;
 
 const WelcomeCard = styled.div`
-  background: linear-gradient(135deg, ${props => props.theme.colors.primary} 0%, ${props => props.theme.colors.primaryHover} 100%);
-  border-radius: ${props => props.theme.borderRadiusLg};
-  padding: ${props => props.theme.spacing.xl};
-  color: ${props => props.theme.colors.white};
-  margin-bottom: ${props => props.theme.spacing.xl};
+  background: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.borderLight};
+  border-radius: ${props => props.theme.borderRadiusMd};
+  padding: ${props => props.theme.spacing['2xl']};
+  margin-bottom: ${props => props.theme.spacing['3xl']};
+  box-shadow: ${props => props.theme.shadows.xs};
 `;
 
 const WelcomeTitle = styled.h2`
-  font-size: ${props => props.theme.fontSizes['3xl']};
+  font-size: ${props => props.theme.fontSizes['2xl']};
   margin-bottom: ${props => props.theme.spacing.sm};
+  color: ${props => props.theme.colors.text};
+  font-weight: ${props => props.theme.fontWeights.semibold};
+  letter-spacing: -0.02em;
 `;
 
 const WelcomeText = styled.p`
-  font-size: ${props => props.theme.fontSizes.lg};
-  opacity: 0.9;
+  font-size: ${props => props.theme.fontSizes.md};
+  color: ${props => props.theme.colors.textSecondary};
+  line-height: 1.6;
 `;
 
 const RecentActivityList = styled.div`
   background: ${props => props.theme.colors.white};
-  border-radius: ${props => props.theme.borderRadiusLg};
-  padding: ${props => props.theme.spacing.lg};
-  box-shadow: ${props => props.theme.shadows.small};
+  border: 1px solid ${props => props.theme.colors.borderLight};
+  border-radius: ${props => props.theme.borderRadiusMd};
+  padding: ${props => props.theme.spacing.xl};
+  box-shadow: ${props => props.theme.shadows.xs};
 `;
 
 const ActivityItem = styled.div`
   display: flex;
-  gap: ${props => props.theme.spacing.md};
-  padding: ${props => props.theme.spacing.md};
-  border-bottom: 1px solid ${props => props.theme.colors.border};
-  transition: background 0.2s ease;
+  gap: ${props => props.theme.spacing.lg};
+  padding: ${props => props.theme.spacing.lg};
+  border-bottom: 1px solid ${props => props.theme.colors.borderLight};
+  transition: background 0.15s ease;
   
   &:last-child {
     border-bottom: none;
   }
   
   &:hover {
-    background: ${props => props.theme.colors.secondary};
+    background: ${props => props.theme.colors.accent};
   }
 `;
 
 const ActivityIcon = styled.div<{ $color: string }>`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: ${props => props.$color}15;
+  width: 36px;
+  height: 36px;
+  border-radius: ${props => props.theme.borderRadius};
+  background: ${props => props.$color}10;
   color: ${props => props.$color};
   display: flex;
   align-items: center;
@@ -78,7 +85,7 @@ const ActivityIcon = styled.div<{ $color: string }>`
   flex-shrink: 0;
   
   svg {
-    font-size: ${props => props.theme.fontSizes.lg};
+    font-size: ${props => props.theme.fontSizes.md};
   }
 `;
 
@@ -87,9 +94,10 @@ const ActivityContent = styled.div`
 `;
 
 const ActivityTitle = styled.div`
-  font-weight: ${props => props.theme.fontWeights.semibold};
+  font-weight: ${props => props.theme.fontWeights.medium};
   color: ${props => props.theme.colors.text};
   margin-bottom: 4px;
+  font-size: ${props => props.theme.fontSizes.sm};
 `;
 
 const ActivityDescription = styled.div`
@@ -149,7 +157,7 @@ export default function AdminDashboard() {
       userRole="admin"
     >
       <WelcomeCard>
-        <WelcomeTitle>Welcome back, Admin! 👋</WelcomeTitle>
+        <WelcomeTitle>Welcome back, Admin</WelcomeTitle>
         <WelcomeText>
           Here's what's happening with your loan platform today.
         </WelcomeText>

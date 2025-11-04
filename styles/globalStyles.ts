@@ -18,9 +18,10 @@ export const GlobalStyles = createGlobalStyle`
   body {
     font-family: ${props => props.theme.fonts.main};
     color: ${props => props.theme.colors.text};
-    background: ${props => props.theme.colors.secondary};
-    line-height: 1.5;
+    background: ${props => props.theme.colors.backgroundAlt};
+    line-height: 1.6;
     overflow-x: hidden;
+    letter-spacing: -0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {

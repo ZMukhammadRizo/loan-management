@@ -29,7 +29,7 @@ const SidebarContainer = styled.aside`
   width: 260px;
   height: 100vh;
   background: ${props => props.theme.colors.white};
-  border-right: 1px solid ${props => props.theme.colors.border};
+  border-right: 1px solid ${props => props.theme.colors.borderLight};
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -48,16 +48,21 @@ const SidebarContainer = styled.aside`
 
 const Logo = styled.div`
   padding: ${props => props.theme.spacing.xl};
-  border-bottom: 1px solid ${props => props.theme.colors.border};
+  border-bottom: 1px solid ${props => props.theme.colors.borderLight};
 `;
 
 const LogoText = styled.h1`
-  font-size: ${props => props.theme.fontSizes.xl};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  color: ${props => props.theme.colors.primary};
+  font-size: ${props => props.theme.fontSizes.lg};
+  font-weight: ${props => props.theme.fontWeights.semibold};
+  color: ${props => props.theme.colors.text};
   display: flex;
   align-items: center;
   gap: ${props => props.theme.spacing.sm};
+  letter-spacing: -0.01em;
+  
+  svg {
+    color: ${props => props.theme.colors.primary};
+  }
 `;
 
 const Nav = styled.nav`
@@ -81,25 +86,25 @@ const NavLink = styled(Link)<{ $isActive: boolean }>`
   gap: ${props => props.theme.spacing.md};
   padding: ${props => props.theme.spacing.md};
   border-radius: ${props => props.theme.borderRadius};
-  font-size: ${props => props.theme.fontSizes.md};
-  font-weight: ${props => props.$isActive ? props.theme.fontWeights.semibold : props.theme.fontWeights.medium};
-  color: ${props => props.$isActive ? props.theme.colors.primary : props.theme.colors.text};
-  background: ${props => props.$isActive ? props.theme.colors.accent : 'transparent'};
-  transition: all 0.2s ease;
+  font-size: ${props => props.theme.fontSizes.sm};
+  font-weight: ${props => props.$isActive ? props.theme.fontWeights.medium : props.theme.fontWeights.regular};
+  color: ${props => props.$isActive ? props.theme.colors.primary : props.theme.colors.textSecondary};
+  background: ${props => props.$isActive ? props.theme.colors.primaryLight : 'transparent'};
+  transition: all 0.15s ease;
 
   &:hover {
-    background: ${props => props.theme.colors.accent};
+    background: ${props => props.$isActive ? props.theme.colors.primaryLight : props.theme.colors.accent};
     color: ${props => props.theme.colors.primary};
   }
 
   svg {
-    font-size: ${props => props.theme.fontSizes.xl};
+    font-size: ${props => props.theme.fontSizes.lg};
   }
 `;
 
 const Footer = styled.div`
   padding: ${props => props.theme.spacing.lg};
-  border-top: 1px solid ${props => props.theme.colors.border};
+  border-top: 1px solid ${props => props.theme.colors.borderLight};
 `;
 
 const LogoutButton = styled.button`
@@ -109,18 +114,19 @@ const LogoutButton = styled.button`
   gap: ${props => props.theme.spacing.md};
   padding: ${props => props.theme.spacing.md};
   border-radius: ${props => props.theme.borderRadius};
-  font-size: ${props => props.theme.fontSizes.md};
-  font-weight: ${props => props.theme.fontWeights.medium};
-  color: ${props => props.theme.colors.error};
+  font-size: ${props => props.theme.fontSizes.sm};
+  font-weight: ${props => props.theme.fontWeights.regular};
+  color: ${props => props.theme.colors.textSecondary};
   background: transparent;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 
   &:hover {
-    background: ${props => props.theme.colors.error}15;
+    background: ${props => props.theme.colors.errorLight};
+    color: ${props => props.theme.colors.error};
   }
 
   svg {
-    font-size: ${props => props.theme.fontSizes.xl};
+    font-size: ${props => props.theme.fontSizes.lg};
   }
 `;
 

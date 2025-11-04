@@ -20,21 +20,22 @@ const Label = styled.label`
   font-size: ${props => props.theme.fontSizes.sm};
   font-weight: ${props => props.theme.fontWeights.medium};
   color: ${props => props.theme.colors.text};
+  margin-bottom: 2px;
 `;
 
 const StyledInput = styled.input<{ $hasError?: boolean }>`
-  padding: 12px 16px;
-  font-size: ${props => props.theme.fontSizes.md};
-  border: 2px solid ${props => props.$hasError ? props.theme.colors.error : props.theme.colors.border};
+  padding: 10px 14px;
+  font-size: ${props => props.theme.fontSizes.sm};
+  border: 1px solid ${props => props.$hasError ? props.theme.colors.error : props.theme.colors.border};
   border-radius: ${props => props.theme.borderRadius};
   background: ${props => props.theme.colors.white};
   color: ${props => props.theme.colors.text};
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
   
   &:focus {
     outline: none;
     border-color: ${props => props.$hasError ? props.theme.colors.error : props.theme.colors.primary};
-    box-shadow: 0 0 0 3px ${props => props.$hasError ? props.theme.colors.error + '20' : props.theme.colors.primary + '20'};
+    box-shadow: 0 0 0 3px ${props => props.$hasError ? props.theme.colors.errorLight : props.theme.colors.primaryLight};
   }
   
   &::placeholder {
@@ -42,7 +43,7 @@ const StyledInput = styled.input<{ $hasError?: boolean }>`
   }
 
   &:disabled {
-    background: ${props => props.theme.colors.secondary};
+    background: ${props => props.theme.colors.accent};
     cursor: not-allowed;
     opacity: 0.6;
   }
@@ -54,6 +55,7 @@ const ErrorText = styled.span`
   display: flex;
   align-items: center;
   gap: ${props => props.theme.spacing.xs};
+  margin-top: 2px;
 `;
 
 const HelperText = styled.span`

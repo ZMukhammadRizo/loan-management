@@ -17,44 +17,47 @@ interface KPICardProps {
 
 const CardContainer = styled(motion.div)`
   background: ${props => props.theme.colors.white};
-  border-radius: ${props => props.theme.borderRadiusLg};
-  padding: ${props => props.theme.spacing.lg};
-  box-shadow: ${props => props.theme.shadows.small};
+  border-radius: ${props => props.theme.borderRadiusMd};
+  border: 1px solid ${props => props.theme.colors.borderLight};
+  padding: ${props => props.theme.spacing.xl};
+  box-shadow: ${props => props.theme.shadows.xs};
   display: flex;
   flex-direction: column;
-  gap: ${props => props.theme.spacing.md};
-  transition: all 0.3s ease;
+  gap: ${props => props.theme.spacing.lg};
+  transition: all 0.15s ease;
 
   &:hover {
-    box-shadow: ${props => props.theme.shadows.medium};
-    transform: translateY(-4px);
+    border-color: ${props => props.theme.colors.border};
+    box-shadow: ${props => props.theme.shadows.small};
   }
 `;
 
 const Header = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 `;
 
 const Title = styled.div`
   font-size: ${props => props.theme.fontSizes.sm};
-  color: ${props => props.theme.colors.textLight};
+  color: ${props => props.theme.colors.textSecondary};
   font-weight: ${props => props.theme.fontWeights.medium};
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 `;
 
 const IconWrapper = styled.div<{ $color?: string }>`
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: ${props => props.theme.borderRadius};
-  background: ${props => props.$color || props.theme.colors.primary}15;
+  background: ${props => props.$color || props.theme.colors.primary}10;
   color: ${props => props.$color || props.theme.colors.primary};
   display: flex;
   align-items: center;
   justify-content: center;
 
   svg {
-    font-size: ${props => props.theme.fontSizes['2xl']};
+    font-size: ${props => props.theme.fontSizes.xl};
   }
 `;
 
@@ -62,15 +65,20 @@ const Value = styled.div`
   font-size: ${props => props.theme.fontSizes['3xl']};
   font-weight: ${props => props.theme.fontWeights.bold};
   color: ${props => props.theme.colors.text};
+  line-height: 1;
 `;
 
 const Trend = styled.div<{ $isPositive: boolean }>`
-  font-size: ${props => props.theme.fontSizes.sm};
+  font-size: ${props => props.theme.fontSizes.xs};
   font-weight: ${props => props.theme.fontWeights.medium};
   color: ${props => props.$isPositive ? props.theme.colors.success : props.theme.colors.error};
-  display: flex;
+  background: ${props => props.$isPositive ? props.theme.colors.successLight : props.theme.colors.errorLight};
+  padding: 4px 8px;
+  border-radius: ${props => props.theme.borderRadius};
+  display: inline-flex;
   align-items: center;
-  gap: ${props => props.theme.spacing.xs};
+  gap: 4px;
+  width: fit-content;
 
   &::before {
     content: '${props => props.$isPositive ? '↑' : '↓'}';

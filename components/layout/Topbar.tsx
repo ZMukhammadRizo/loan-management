@@ -10,22 +10,23 @@ interface TopbarProps {
 }
 
 const TopbarContainer = styled.header`
-  height: 70px;
+  height: 64px;
   background: ${props => props.theme.colors.white};
-  border-bottom: 1px solid ${props => props.theme.colors.border};
+  border-bottom: 1px solid ${props => props.theme.colors.borderLight};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 ${props => props.theme.spacing.xl};
+  padding: 0 ${props => props.theme.spacing['2xl']};
   position: sticky;
   top: 0;
   z-index: 90;
 `;
 
 const Title = styled.h2`
-  font-size: ${props => props.theme.fontSizes['2xl']};
+  font-size: ${props => props.theme.fontSizes.xl};
   font-weight: ${props => props.theme.fontWeights.semibold};
   color: ${props => props.theme.colors.text};
+  letter-spacing: -0.01em;
 `;
 
 const Actions = styled.div`
@@ -35,24 +36,24 @@ const Actions = styled.div`
 `;
 
 const IconButton = styled.button`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: ${props => props.theme.colors.secondary};
+  width: 36px;
+  height: 36px;
+  border-radius: ${props => props.theme.borderRadius};
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${props => props.theme.colors.text};
-  transition: all 0.2s ease;
+  color: ${props => props.theme.colors.textSecondary};
+  transition: all 0.15s ease;
   position: relative;
 
   &:hover {
     background: ${props => props.theme.colors.accent};
-    color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.text};
   }
 
   svg {
-    font-size: ${props => props.theme.fontSizes.xl};
+    font-size: ${props => props.theme.fontSizes.lg};
   }
 `;
 
@@ -73,9 +74,9 @@ const UserInfo = styled.div`
   gap: ${props => props.theme.spacing.md};
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
   border-radius: ${props => props.theme.borderRadius};
-  background: ${props => props.theme.colors.secondary};
+  background: transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
 
   &:hover {
     background: ${props => props.theme.colors.accent};
@@ -87,15 +88,16 @@ const UserInfo = styled.div`
 `;
 
 const Avatar = styled.div`
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: ${props => props.theme.colors.primary};
-  color: ${props => props.theme.colors.white};
+  width: 32px;
+  height: 32px;
+  border-radius: ${props => props.theme.borderRadiusFull};
+  background: ${props => props.theme.colors.primaryLight};
+  color: ${props => props.theme.colors.primary};
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: ${props => props.theme.fontWeights.semibold};
+  font-weight: ${props => props.theme.fontWeights.medium};
+  font-size: ${props => props.theme.fontSizes.xs};
 `;
 
 const UserDetails = styled.div`
@@ -105,7 +107,7 @@ const UserDetails = styled.div`
 
 const UserName = styled.div`
   font-size: ${props => props.theme.fontSizes.sm};
-  font-weight: ${props => props.theme.fontWeights.semibold};
+  font-weight: ${props => props.theme.fontWeights.medium};
   color: ${props => props.theme.colors.text};
 `;
 

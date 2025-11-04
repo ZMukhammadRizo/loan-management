@@ -11,40 +11,40 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: ${props => props.theme.spacing.lg};
-  background: linear-gradient(135deg, ${props => props.theme.colors.primary}15 0%, ${props => props.theme.colors.accent} 100%);
+  padding: ${props => props.theme.spacing.xl};
+  background: ${props => props.theme.colors.backgroundAlt};
 `;
 
 const Card = styled(motion.div)`
   background: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.borderLight};
   border-radius: ${props => props.theme.borderRadiusLg};
-  padding: ${props => props.theme.spacing['2xl']};
-  box-shadow: ${props => props.theme.shadows.large};
-  max-width: 600px;
+  padding: ${props => props.theme.spacing['3xl']};
+  box-shadow: ${props => props.theme.shadows.small};
+  max-width: 900px;
   width: 100%;
   text-align: center;
 `;
 
 const Title = styled.h1`
-  font-size: ${props => props.theme.fontSizes['4xl']};
+  font-size: ${props => props.theme.fontSizes['3xl']};
   color: ${props => props.theme.colors.text};
-  margin-bottom: ${props => props.theme.spacing.md};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: ${props => props.theme.spacing.md};
+  margin-bottom: ${props => props.theme.spacing.lg};
+  font-weight: ${props => props.theme.fontWeights.semibold};
+  letter-spacing: -0.02em;
 `;
 
 const Subtitle = styled.p`
-  font-size: ${props => props.theme.fontSizes.lg};
-  color: ${props => props.theme.colors.textLight};
-  margin-bottom: ${props => props.theme.spacing['2xl']};
+  font-size: ${props => props.theme.fontSizes.md};
+  color: ${props => props.theme.colors.textSecondary};
+  margin-bottom: ${props => props.theme.spacing['3xl']};
+  line-height: 1.6;
 `;
 
 const ButtonGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  gap: ${props => props.theme.spacing.md};
+  gap: ${props => props.theme.spacing.lg};
   margin-top: ${props => props.theme.spacing.xl};
 
   @media (min-width: ${props => props.theme.breakpoints.mobile}) {
@@ -57,31 +57,32 @@ const Button = styled(motion(Link))`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: ${props => props.theme.spacing.sm};
-  padding: ${props => props.theme.spacing.xl};
-  background: ${props => props.theme.colors.secondary};
-  border: 2px solid ${props => props.theme.colors.border};
-  border-radius: ${props => props.theme.borderRadius};
+  gap: ${props => props.theme.spacing.md};
+  padding: ${props => props.theme.spacing['2xl']};
+  background: ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.border};
+  border-radius: ${props => props.theme.borderRadiusMd};
   color: ${props => props.theme.colors.text};
-  font-weight: ${props => props.theme.fontWeights.semibold};
-  transition: all 0.3s ease;
+  font-weight: ${props => props.theme.fontWeights.medium};
+  font-size: ${props => props.theme.fontSizes.sm};
+  transition: all 0.15s ease;
   cursor: pointer;
 
   &:hover {
-    background: ${props => props.theme.colors.primary};
-    color: ${props => props.theme.colors.white};
+    background: ${props => props.theme.colors.accent};
     border-color: ${props => props.theme.colors.primary};
-    box-shadow: ${props => props.theme.shadows.medium};
+    box-shadow: ${props => props.theme.shadows.small};
   }
 
   svg {
-    font-size: ${props => props.theme.fontSizes['3xl']};
+    font-size: ${props => props.theme.fontSizes['2xl']};
+    color: ${props => props.theme.colors.primary};
   }
 `;
 
 const Version = styled.div`
-  margin-top: ${props => props.theme.spacing.xl};
-  font-size: ${props => props.theme.fontSizes.sm};
+  margin-top: ${props => props.theme.spacing['2xl']};
+  font-size: ${props => props.theme.fontSizes.xs};
   color: ${props => props.theme.colors.textLight};
 `;
 
@@ -94,7 +95,6 @@ export default function Home() {
         transition={{ duration: 0.5 }}
       >
         <Title>
-          <FiDollarSign />
           Loan Management Platform
         </Title>
         <Subtitle>
@@ -104,8 +104,7 @@ export default function Home() {
         <ButtonGrid>
           <Button
             href="/admin"
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.98 }}
           >
             <FiBarChart />
             <span>Admin Dashboard</span>
@@ -113,8 +112,7 @@ export default function Home() {
 
           <Button
             href="/broker"
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.98 }}
           >
             <FiUsers />
             <span>Broker Portal</span>
@@ -122,8 +120,7 @@ export default function Home() {
 
           <Button
             href="/apply"
-            whileHover={{ y: -4 }}
-            whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.98 }}
           >
             <FiDollarSign />
             <span>Apply for Loan</span>
