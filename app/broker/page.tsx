@@ -197,9 +197,10 @@ export default function BrokerDashboard() {
 
       <Section>
         <SectionTitle>Your Portfolio by State</SectionTitle>
-        <SimpleUSMap
+        <InteractiveUSMap
           role="broker"
           stateData={mockBrokerStateData}
+          loanDetails={mockLoanDetailsByState}
           onStateClick={handleStateClick}
         />
       </Section>

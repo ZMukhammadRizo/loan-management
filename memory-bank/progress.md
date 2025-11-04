@@ -214,6 +214,9 @@
 *None yet - project not started*
 
 ## Recent Changes
+- **November 4, 2025**:
+  - Exported `SimpleUSMap`, `InteractiveUSMap`, and `StateDetailsDrawer` from `components/dashboard/index.ts` to fix runtime import error on broker dashboard.
+  - Updated broker dashboard map: replaced `SimpleUSMap` with `InteractiveUSMap` in `app/broker/page.tsx` and added `loanDetails` prop to align visuals/UX with admin panel.
 - **October 14, 2025 (Phase 1 Complete)**: 
   - Initialized Memory Bank with complete documentation
   - Created Next.js 15 project with App Router and TypeScript

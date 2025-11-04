@@ -61,7 +61,7 @@
 3. Test components with Storybook (optional)
 
 ## Current Work Focus
-**Right now:** Awaiting user confirmation to proceed with Phase 1 setup.
+**Right now:** UI parity between admin and broker dashboards; unified map component usage.
 
 ## Recent Decisions & Considerations
 
@@ -71,6 +71,7 @@
 3. **Supabase RLS**: Database-level security instead of API middleware
 4. **Zustand over Redux**: Simpler state management for form progress
 5. **4-Step Form**: Splitting loan application into manageable chunks with auto-save
+6. **Unified Map Component**: Use `InteractiveUSMap` for both admin and broker dashboards for consistent UX and visuals.
 
 ### Technical Considerations
 1. **Auto-Save Strategy**: Debounce auto-save calls (500ms delay) to reduce API requests
@@ -155,6 +156,10 @@ const Button = styled.button`
   }
 `;
 ```
+
+### Implementation Notes (Nov 4, 2025)
+- Fixed missing exports in `components/dashboard/index.ts` for `SimpleUSMap`, `InteractiveUSMap`, and `StateDetailsDrawer` to resolve undefined import at runtime.
+- Replaced `SimpleUSMap` with `InteractiveUSMap` in `app/broker/page.tsx` and passed `loanDetails={mockLoanDetailsByState}` to match admin dashboard behavior and appearance.
 
 ## Active Questions & Unknowns
 1. **Broker Approval**: Should brokers be auto-approved or require admin approval?

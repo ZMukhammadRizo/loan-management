@@ -324,6 +324,20 @@ export function middleware(request: NextRequest) {
 - `LoanChart.tsx` - Using Recharts
 - `BrokerLeaderboard.tsx`
 
+### Map Visualization Pattern
+**Usage:**
+- `InteractiveUSMap` is the standardized US map component for dashboards.
+- Used by both `app/admin/page.tsx` and `app/broker/page.tsx` for consistent behavior and styling.
+
+**Props:**
+- `role: 'admin' | 'broker'`
+- `stateData: Record<string, StateData>`
+- `loanDetails: Record<string, LoanDetail[]>`
+- `onStateClick?: (stateId: string, stateData: StateData) => void`
+
+**Export Pattern:**
+- Ensure all dashboard components are re-exported from `components/dashboard/index.ts` (barrel) to avoid undefined imports.
+
 ## Critical Implementation Paths
 
 ### Path 1: Loan Application Flow
